@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Check permutation</title>
+	</head>
+	<body>
+		<script>
+			const checkPermutation = (str1, str2) => {
+				// Get lengths of both strings
+				let n1 = str1.length;
+				let n2 = str2.length;
+
+				// If length of both strings is not same,
+				// then they cannot be Permutation
+				if (n1 != n2) return false;
+
+				let ch1 = str1.split(" ");
+				let ch2 = str2.split(" ");
+
+				// Sort both strings
+				ch1.sort();
+				ch2.sort();
+
+				// Compare sorted strings
+				for (let i = 0; i < n1; i++) 
+                    for(let j=0; j < n2; j++)
+                    if (ch1[i] != ch2[j]) return false;
+
+				return true;
+			};
+
+			let str1 = "dabc";
+			let str2 = "abcd";
+
+			if (checkPermutation(str1, str2)== true){
+				
+				document.write(`Yes, they are in permutation`);
+			}
+			else{
+				document.write(`No,they are not in permutation`);
+			} 
+
+			
+		</script>
+	</body>
+</html>

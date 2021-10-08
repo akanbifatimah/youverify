@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Answers to questions</title>
+	</head>
+	<body style="background-color: aquamarine; font-weight: bolder; color: blue;">
+		
+		<script>
+			const uniqueCharacters=(str) =>{
+				for (let i = 0; i < str.length; i++)
+					for (let j = i + 1; j < str.length; j++)
+						if (str[i] == str[j]) return false;
+				return true;
+			}
+			let input = "Gks";
+
+			if (uniqueCharacters(input) == true){
+				document.write(
+					`All characters in the String  "${input}" are unique. ` 
+				);
+            }else {
+            document.write(`The String "${input}" has duplicate characters.`)}
+		</script>
+	</body>
+</html>

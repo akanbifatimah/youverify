@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>One edit Away</title>
+	</head>
+	<body>
+		<script>
+			function oneAway(str1, str2) {
+				// Check for identical strings
+				if (str1 === str2) {
+					return true;
+				}
+				// Check length diff is not more that one char
+				if (Math.abs(str2.length - str1.length) > 1) {
+					return false;
+				}
+				// If first characters are equal, check following substring
+				if (str1[0] === str2[0]) {
+					return oneAway(str1.slice(1), str2.slice(1));
+				} else {
+					// Check first character edition
+					if (str1.length === str2.length && str1 === str1[0] + str2.slice(1)) {
+						return true;
+					}
+					// Check first character deletion
+					else if (str1.length > str2.length && str1 === str1[0] + str2) {
+						return true;
+					}
+					// Check first character insertion
+					else if (str1.length < str2.length && str1 === str2.slice(1)) {
+						return true;
+					}
+				}
+				return false;
+			}
+
+			let str1 = "pale";
+			let str2 = "ple";
+			if (oneAway(str1, str2) == true) {
+				document.write(` "${str1}" and "${str2}" is one edit away. `);
+			} else {
+				document.write(` "${str1}" and "${str2}" is not one edit away. `);
+			}
+		</script>
+	</body>
+</html>
